@@ -1,0 +1,8 @@
+
+y
+java:S1450"WRemove the "executor" field and declare it as a local variable in the relevant methods.(„¼ò×şÿÿÿÿ8¯¢‡»í0
+p
+java:S1450"SRemove the "root" field and declare it as a local variable in the relevant methods.(Ñş­÷8¯¢‡»í0
+W
+java:S1128
+":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8¶¢‡»í0

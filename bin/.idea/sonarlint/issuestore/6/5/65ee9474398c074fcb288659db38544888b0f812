@@ -1,0 +1,5 @@
+
+g	java:S112*"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÆÞ·»í0
+f
+java:S2095"DUse try-with-resources or close this "Stream" in a "finally" clause.(ßý€Ûøÿÿÿÿ8ºú¤»í0
+]	java:S125""<This block of commented-out lines of code should be removed.(»ÚØúÿÿÿÿ8ìÞ·»í0

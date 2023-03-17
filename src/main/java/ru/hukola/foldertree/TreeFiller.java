@@ -11,12 +11,12 @@ import java.util.concurrent.TimeUnit;
 
 
 public class TreeFiller implements Runnable {
-    private TreeView<String> treeView;
-    private TreeItem<String> root;
+    private TreeView<FileView> treeView;
+    private TreeItem<FileView> root;
     private ExecutorService executor;
     private final String folder;
 
-    public TreeFiller(TreeView<String> treeView, String folder) {
+    public TreeFiller(TreeView<FileView> treeView, String folder) {
         this.treeView = treeView;
         this.folder = folder;
     }
@@ -25,7 +25,8 @@ public class TreeFiller implements Runnable {
     public void run() {
         executor = Executors.newCachedThreadPool();
         Path path = Paths.get(folder);
-        root = new TreeItem<>(path.getFileName().toString(), Helper.newFolderImage());
+        FileView fw = new FileView(path.getFileName().toString(), path.getFileName());
+        root = new TreeItem<>(fw, Helper.newFolderImage());
         executor.submit(new CatalogReader(root, path, executor));
         treeView.setRoot(root);
         root.setExpanded(true);
