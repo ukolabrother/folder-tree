@@ -1,4 +1,4 @@
-package ru.hukola.foldertree;
+package ru.hukola.foldertree.model;
 
 import java.nio.file.Path;
 

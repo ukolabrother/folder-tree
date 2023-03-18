@@ -1,4 +1,4 @@
-package ru.hukola.foldertree;
+package ru.hukola.foldertree.model;
 
 import javafx.scene.control.TreeItem;
 
@@ -8,15 +8,18 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
-public class CatalogReader implements Runnable{
+public class TreeCatalogReader implements Runnable{
     private final TreeItem<FileView> parent;
     private final Path catalog;
     private final ExecutorService executor;
 
-    public CatalogReader(TreeItem<FileView> parent, Path catalog, ExecutorService executor) {
+  
+
+    public TreeCatalogReader(TreeItem<FileView> parent, Path catalog, ExecutorService executor) {
         this.parent = parent;
         this.catalog = catalog;
         this.executor = executor;
+
     }
 
     @Override
@@ -29,12 +32,13 @@ public class CatalogReader implements Runnable{
                     continue;
                 }
                 if (Files.isDirectory(file)) {
-                	FileView fw = new FileView(file.getFileName().toString(), file.getFileName());
+
+                	FileView fw = new FileView(file.getFileName().toString(), file);
                     item = new TreeItem<>(fw, Helper.newFolderImage());
-                    new CatalogReader(item, file, executor).run();
-                } else {
-                	FileView fw = new FileView(file.getFileName().toString(), file.getFileName());
-                    item = new TreeItem<>(fw);
+                    new TreeCatalogReader(item, file, executor).run();
+//                } else {
+//                	FileView fw = new FileView(file.getFileName().toString(), file.getFileName());
+//                    item = new TreeItem<>(fw);
                 }
                 parent.getChildren().add(item);
             }

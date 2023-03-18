@@ -1,4 +1,4 @@
-package ru.hukola.foldertree;
+package ru.hukola.foldertree.model;
 
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;

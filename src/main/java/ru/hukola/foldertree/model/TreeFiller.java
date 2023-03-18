@@ -1,4 +1,4 @@
-package ru.hukola.foldertree;
+package ru.hukola.foldertree.model;
 
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -27,11 +27,10 @@ public class TreeFiller implements Runnable {
         Path path = Paths.get(folder);
         FileView fw = new FileView(path.getFileName().toString(), path.getFileName());
         root = new TreeItem<>(fw, Helper.newFolderImage());
-        executor.submit(new CatalogReader(root, path, executor));
+        executor.submit(new TreeCatalogReader(root, path, executor));
         treeView.setRoot(root);
         root.setExpanded(true);
         executor.shutdown();
-
     }
 
 }
